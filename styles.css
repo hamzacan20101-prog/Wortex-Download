@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #1b2838;
+    color: #c7d5e0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+header {
+    background-color: #171a21;
+    padding: 15px 0;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    display: inline-block;
+    color: #66c0f4;
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+nav {
+    float: right;
+}
+
+nav a {
+    color: #c7d5e0;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #66c0f4;
+}
+
+.game-list h2 {
+    margin-bottom: 20px;
+    font-size: 1.6rem;
+}
+
+.games {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.game-card {
+    background-color: #2a475e;
+    border-radius: 6px;
+    width: 220px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.game-card:hover {
+    transform: scale(1.05);
+}
+
+.game-card img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.game-info {
+    padding: 10px;
+}
+
+.game-info h3 {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+}
+
+.game-info p {
+    font-size: 0.9rem;
+    color: #a9b7c6;
+    height: 40px;
+    overflow: hidden;
+}
+
+.buy-btn {
+    background-color: #5c7e10;
+    color: white;
+    text-align: center;
+    padding: 8px 0;
+    margin: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    user-select: none;
+}
+
+.buy-btn:hover {
+    background-color: #7fbf16;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    color: #6d7a8a;
+    font-size: 0.9rem;
+}
+.header-links a.header-btn {
+    color: #c7d5e0;
+    background-color: #2a475e;
+    padding: 8px 14px;
+    border-radius: 5px;
+    margin-left: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.header-links a.header-btn:hover {
+    background-color: #66c0f4;
+    color: white;
+}
+/* Modal arka plan */
+.modal {
+  display: none; /* Başta gizli */
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+/* Modal içerik kutusu */
+.modal-content {
+  background-color: #2a475e;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  color: #c7d5e0;
+  text-align: center;
+  position: relative;
+}
+
+/* Kapatma butonu */
+.close-btn {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #c7d5e0;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #66c0f4;
+}
