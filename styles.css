@@ -1,168 +1,192 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+
+/* ============ Temel ============ */
+:root{
+  --bg: #0e141b;
+  --bg-2:#1b2838;
+  --card:#16202e;
+  --text:#c7d5e0;
+  --muted:#9fb1bf;
+  --primary:#66c0f4;
+  --accent:#5c7e10;
+  --accent-2:#2a475e;
+  --border:#22384a;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
 }
 
-body {
-    background-color: #1b2838;
-    color: #c7d5e0;
+*{ box-sizing:border-box; }
+html,body{height:100%;}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  color:var(--text);
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+/* ============ Grid & Container ============ */
+.container{
+  width:100%;
+  max-width:1100px;
+  margin:0 auto;
+  padding:0 16px;
 }
 
-header {
-    background-color: #171a21;
-    padding: 15px 0;
-    margin-bottom: 30px;
+/* ============ Header ============ */
+header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(15, 21, 29, .85);
+  backdrop-filter: blur(8px);
+  border-bottom:1px solid var(--border);
 }
 
-header h1 {
-    display: inline-block;
-    color: #66c0f4;
-    font-weight: bold;
-    font-size: 1.8rem;
+h1{ font-size:1.25rem; margin:0; color:#fff; letter-spacing:.3px; }
+
+.header-btn{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--accent-2);
+  color:#e6f4ff; text-decoration:none; font-weight:700;
+  padding:10px 14px; border-radius:10px; border:1px solid #24465b;
+  box-shadow: var(--shadow);
+  transition: transform .08s ease, background .2s ease, opacity .2s ease;
+}
+.header-btn:hover{ background:#315e78; transform: translateY(-1px); }
+.header-btn:active{ transform: translateY(0); }
+
+/* ============ Footer ============ */
+footer{
+  margin-top:40px; padding:28px 0; text-align:center;
+  color:var(--muted); border-top:1px solid var(--border);
+  background: rgba(0,0,0,.1);
 }
 
-nav {
-    float: right;
+/* ============ Bölümler ============ */
+section h2{ margin:24px 0 14px; font-size:1.4rem; }
+.game-list{ padding:24px 0 10px; }
+
+/* ============ Kartlar ============ */
+.games{
+  display:grid; grid-template-columns: repeat( auto-fill, minmax(260px, 1fr) );
+  gap:16px;
 }
 
-nav a {
-    color: #c7d5e0;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 600;
-    transition: color 0.3s ease;
+.game-card{
+  background:var(--card); border:1px solid var(--border);
+  border-radius:14px; overflow:hidden; box-shadow: var(--shadow);
+  display:flex; flex-direction:column;
+  transition: transform .12s ease, box-shadow .12s ease, border-color .2s ease;
+}
+.game-card:hover{ transform: translateY(-2px); border-color:#2e4b61; }
+
+.game-card img{ width:100%; height:160px; object-fit:cover; display:block; }
+
+.game-info{ padding:14px; }
+.game-info h3{ margin:0 0 6px; font-size:1.05rem; color:#fff; }
+.game-info p{ margin:0; color:var(--muted); font-size:.95rem; line-height:1.35; }
+
+.buy-btn{
+  margin:12px; margin-top:auto;
+  padding:12px 14px; text-align:center; cursor:pointer;
+  border-radius:10px; font-weight:800; letter-spacing:.2px;
+  background:var(--accent);
+  border:1px solid #4e6a0d;
+  user-select:none;
+}
+.buy-btn:hover{ background:#7fbf16; }
+
+/* ============ Auth Chip ============ */
+.auth-chip{
+  background:#13202d; border:1px solid var(--border);
+  padding:8px 10px; border-radius:999px; color:#daebff;
 }
 
-nav a:hover {
-    color: #66c0f4;
+/* ============ Modal ============ */
+.modal{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:999; }
+.modal-content{
+  width:min(520px, calc(100% - 24px));
+  margin:60px auto; background:var(--bg-2); color:var(--text);
+  border-radius:16px; border:1px solid var(--border); box-shadow: var(--shadow);
+  padding:18px;
 }
-
-.game-list h2 {
-    margin-bottom: 20px;
-    font-size: 1.6rem;
+.close-btn{
+  float:right; font-size:24px; cursor:pointer;
+  color:#cbd9e5; padding:2px 8px; border-radius:8px;
 }
+.close-btn:hover{ background:#203243; }
 
+/* ============ Form ============ */
+form .row{ display:flex; flex-direction:column; gap:6px; margin-bottom:12px; text-align:left; }
+form label{ font-size:.9rem; color:#d3e6f7; }
+form input{
+  width:100%; padding:12px; border-radius:10px; border:1px solid var(--border);
+  background:#142231; color:#e9f4ff; outline:none;
+}
+form input:focus{ border-color:#2f5270; box-shadow:0 0 0 3px rgba(102,192,244,.15); }
+
+.btn{
+  display:inline-block; background:var(--accent); color:#fff; padding:12px 14px;
+  border-radius:10px; font-weight:800; text-align:center; cursor:pointer; border:none;
+}
+.btn:hover{ filter: brightness(1.1); }
+.btn-secondary{ background:var(--accent-2); }
+.provider-btn{ width:100%; margin-top:8px; }
+
+/* ============ Tabs ============ */
+.tabs{ display:flex; gap:8px; margin-bottom:14px; }
+.tab{
+  flex:1; text-align:center; padding:10px; border-radius:10px; cursor:pointer;
+  background:#152636; border:1px solid var(--border); user-select:none; font-weight:700;
+}
+.tab.active{ background:var(--primary); color:#0b151e; border-color:#3ea7e3; }
+
+/* ============ Helpers ============ */
+.hidden{ display:none !important; }
+.muted{ color:var(--muted); font-size:.95rem; }
+
+/* ============ Responsive ============ */
+@media (max-width: 640px){
+  .games{ grid-template-columns: 1fr; }
+  .game-card img{ height:180px; }
+}
 .games {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 }
 
+/* Her oyun kartı aynı stil, zaten mevcut */
 .game-card {
-    background-color: #2a475e;
-    border-radius: 6px;
-    width: 220px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.7);
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.game-card:hover {
-    transform: scale(1.05);
+  background:#1b2838;
+  border-radius:10px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
 }
 
 .game-card img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
+  width:100%;
+  display:block;
 }
 
 .game-info {
-    padding: 10px;
-}
-
-.game-info h3 {
-    font-size: 1.1rem;
-    margin-bottom: 6px;
-}
-
-.game-info p {
-    font-size: 0.9rem;
-    color: #a9b7c6;
-    height: 40px;
-    overflow: hidden;
+  padding:10px;
 }
 
 .buy-btn {
-    background-color: #5c7e10;
-    color: white;
-    text-align: center;
-    padding: 8px 0;
-    margin: 10px;
-    border-radius: 4px;
-    font-weight: bold;
-    user-select: none;
+  margin:10px;
+  padding:10px;
+  background:#5c7e10;
+  color:#fff;
+  text-align:center;
+  border-radius:6px;
+  cursor:pointer;
 }
 
 .buy-btn:hover {
-    background-color: #7fbf16;
+  background:#7fbf16;
 }
 
-footer {
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 50px;
-    color: #6d7a8a;
-    font-size: 0.9rem;
-}
-.header-links a.header-btn {
-    color: #c7d5e0;
-    background-color: #2a475e;
-    padding: 8px 14px;
-    border-radius: 5px;
-    margin-left: 12px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: background-color 0.3s ease;
-}
-
-.header-links a.header-btn:hover {
-    background-color: #66c0f4;
-    color: white;
-}
-/* Modal arka plan */
-.modal {
-  display: none; /* Başta gizli */
-  position: fixed;
-  z-index: 1000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.6);
-}
-
-/* Modal içerik kutusu */
-.modal-content {
-  background-color: #2a475e;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
-  width: 90%;
-  max-width: 400px;
-  color: #c7d5e0;
-  text-align: center;
-  position: relative;
-}
-
-/* Kapatma butonu */
-.close-btn {
-  position: absolute;
-  top: 10px; right: 15px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #c7d5e0;
-  cursor: pointer;
-}
-
-.close-btn:hover {
-  color: #66c0f4;
+/* Responsive 600px altı ekranlarda alt alta */
+@media screen and (max-width: 600px) {
+  .games {
+    grid-template-columns: 1fr;
+  }
 }
