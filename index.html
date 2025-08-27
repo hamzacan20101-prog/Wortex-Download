@@ -1,41 +1,135 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Wotex Download- Oyun Mağazası</title>
-    <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wotex - Oyun Mağazası</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Küçük ufak tefek header iyileştirmeleri */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .auth-chip {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+    .hidden { display: none !important; }
+    form .row { display:flex; flex-direction:column; gap:6px; margin-bottom:12px; text-align:left; }
+    form label { font-size:0.9rem; }
+    form input {
+      width:100%; padding:10px; border-radius:6px; border:1px solid #3a566b;
+      background:#1b2838; color:#c7d5e0;
+    }
+    .btn {
+      display:inline-block; background:#5c7e10; color:#fff; padding:10px 14px;
+      border-radius:6px; font-weight:700; text-align:center; cursor:pointer;
+    }
+    .btn:hover { background:#7fbf16; }
+    .btn-secondary { background:#2a475e; }
+    .tabs { display:flex; gap:8px; margin-bottom:14px; }
+    .tab { flex:1; text-align:center; padding:10px; border-radius:6px; cursor:pointer; background:#22384a; }
+    .tab.active { background:#66c0f4; color:#fff; }
+    .muted { color:#a9b7c6; font-size:0.9rem; }
+    .provider-btn { width:100%; margin-top:8px; }
+  </style>
 </head>
 <body>
+  <!-- Start of LiveChat (www.livechat.com) code -->
+<script>
+    window.__lc = window.__lc || {};
+    window.__lc.license = 19282016;
+    window.__lc.integration_name = "manual_onboarding";
+    window.__lc.product_name = "livechat";
+    ;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+</script>
+<noscript><a href="https://www.livechat.com/chat-with/19282016/" rel="nofollow">Chat with us</a>, powered by <a href="https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+<!-- End of LiveChat code -->
+
 <header>
-    <div class="container" style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0;">
-        <h1>Wotex Download</h1> 
-        <div class="header-links">
-            <a href="https://discord.gg/VH549j89kz" target="_blank" rel="noopener" class="header-btn">Discord</a>
-            <a href="https://www.youtube.com/channel/UCexample" target="_blank" rel="noopener" class="header-btn">YouTube</a>
-        </div>
+  <div class="container" style="display:flex; justify-content:space-between; align-items:center; padding:15px 0;">
+    <h1>Wotex Download</h1>
+    <div class="header-actions">
+      <span id="userChip" class="auth-chip hidden">👤 <span id="userEmail"></span></span>
+      <a id="authBtn" class="header-btn" href="javascript:void(0)">Giriş / Kaydol</a>
+      <a id="logoutBtn" class="header-btn hidden" href="javascript:void(0)">Çıkış Yap</a>
+      <div class="header-links">
+        <a href="https://discord.gg/VH549j89kz" target="_blank" rel="noopener" class="header-btn">İlan ver!</a>
+        <a href="https://www.youtube.com/channel/UCexample" target="_blank" rel="noopener" class="header-btn">YouTube</a>
+      </div>
     </div>
+  </div>
 </header>
 
-        <div class="container">
-            <h1>Wotex Download</h1>
+<main class="container">
+  <section class="game-list">
+    <h2>Öne Çıkan Oyunlar</h2>
+    <div class="games" id="games">
+      <!-- Demo kartlar -->
+       <div class="game-card">
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEUAAACnej3aAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=" alt="Oyun 1">
+        <div class="game-info">
+          <h3>İlan boş</h3>
+          <p>İlan ver! tıkla.</p>
         </div>
-    </header>
+        <div class="buy-btn" data-sku="pack1">İndir / Satın Al</div>
+      </div>
+  </section>
+</main>
 
-    <main class="container">
-        <section class="game-list">
-            <h2>Öne Çıkan Oyunlar</h2>
-            <div class="games">
-                <!-- Oyun kartları buraya gelecek -->
-            </div>
-        </section>
-    </main>
+<footer>
+  <p>© 2025 Wotex Download. Tüm hakları saklıdır.</p>
+</footer>
 
-    <footer>
-        <p>© 2025 Wotex Download. Tüm hakları saklıdır.</p>
-    </footer>
+<!-- Auth Modal -->
+<div id="authModal" class="modal" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <span class="close-btn" id="closeAuth">&times;</span>
+    <h3 id="authTitle" style="margin-bottom:10px;">Hesabına Giriş Yap</h3>
 
-    <script src="scripts.js"></script>
+    <div class="tabs">
+      <div class="tab active" data-tab="login">Giriş</div>
+      <div class="tab" data-tab="signup">Kaydol</div>
+    </div>
+
+    <form id="loginForm">
+      <div class="row">
+        <label for="loginEmail">E-posta</label>
+        <input id="loginEmail" type="email" placeholder="ornek@mail.com" required />
+      </div>
+      <div class="row">
+        <label for="loginPassword">Şifre</label>
+        <input id="loginPassword" type="password" placeholder="••••••••" required />
+      </div>
+      <button class="btn" type="submit">Giriş Yap</button>
+      <button id="googleLogin" type="button" class="btn btn-secondary provider-btn">Google ile devam et</button>
+    </form>
+
+    <form id="signupForm" class="hidden">
+      <div class="row">
+        <label for="signupName">Kullanıcı adı (görünen ad)</label>
+        <input id="signupName" type="text" placeholder="Hamo" required />
+      </div>
+      <div class="row">
+        <label for="signupEmail">E-posta</label>
+        <input id="signupEmail" type="email" placeholder="ornek@mail.com" required />
+      </div>
+      <div class="row">
+        <label for="signupPassword">Şifre (min 6 karakter)</label>
+        <input id="signupPassword" type="password" placeholder="••••••••" minlength="6" required />
+      </div>
+      <button class="btn" type="submit">Kaydol</button>
+      <p class="muted">Kaydolarak <a href="#" target="_blank">Şartlar</a> ve <a href="#" target="_blank">Gizlilik</a>'i kabul edersin.</p>
+      <button id="googleSignup" type="button" class="btn btn-secondary provider-btn">Google ile devam et</button>
+    </form>
+
+    <p id="authMsg" class="muted" style="margin-top:8px;"></p>
+  </div>
+</div>
+
+<!-- scripts.js içinde Firebase modülleri import ediliyor -->
+<script type="module" src="scripts.js"></script>
 </body>
 </html>
-
